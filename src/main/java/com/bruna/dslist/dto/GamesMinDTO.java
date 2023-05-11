@@ -1,6 +1,7 @@
 package com.bruna.dslist.dto;
 
 import com.bruna.dslist.entities.Games;
+import com.bruna.dslist.projections.GameMinProjection;
 
 public class GamesMinDTO {
 	
@@ -21,6 +22,15 @@ public class GamesMinDTO {
 		shortDescription = entity.getShortDescription();
 	}
 
+	public GamesMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+		
+}
+	
 	public Long getId() {
 		return id;
 	}
@@ -40,7 +50,5 @@ public class GamesMinDTO {
 	public String getShortDescription() {
 		return shortDescription;
 	}
-	
-	
 	
 }
